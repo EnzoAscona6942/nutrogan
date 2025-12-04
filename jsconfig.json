@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "strict": false,
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"],
+      "app/*": ["*"],
+      "components/*": ["src/components/*"],
+      "layouts/*": ["src/layouts/*"],
+      "pages/*": ["src/pages/*"],
+      "assets/*": ["src/assets/*"],
+      "boot/*": ["src/boot/*"],
+      "stores/*": ["src/stores/*"]
+    },
+    "types": ["quasar", "node", "geojson"]
+  },
+  "include": ["src/**/*.js", "src/**/*.vue", "src/**/*.ts"],
+  "exclude": [
+    "dist",
+    ".quasar",
+    "node_modules",
+    "src-pwa",
+    "src-ssr",
+    "src-cordova",
+    "src-bex",
+    "src-electron"
+  ]
+}

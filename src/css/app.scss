@@ -1,0 +1,557 @@
+/* --- 1. Fuentes --- */
+body {
+  font-family: 'Outfit', sans-serif;
+  background: url('/images/nutrogan-bg.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+}
+
+.text-h1,
+.text-h2,
+.text-h3,
+.text-h4,
+.text-h5,
+.text-h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* --- 2. Layout Principal --- */
+.q-layout {
+  background: transparent;
+}
+.custom-header {
+  background: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+.neon-bar {
+  height: 5px;
+  width: 100%;
+  background-color: $primary;
+  box-shadow:
+    0 0 10px $primary,
+    0 0 20px $primary;
+}
+
+/* --- 3. Contenido de Página (Recuadro Flotante) --- */
+.page-container-style {
+  /* --- DIMENSIONES Y POSICIÓN --- */
+  width: calc(100vw - 80px);
+  height: calc(100vh - 190px);
+  margin: 95px auto 0 auto;
+
+  /* --- ESTÉTICA --- */
+  background: rgba(15, 15, 20, 0.65);
+  /* CORRECCIÓN 1: Soporte Safari */
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+  /* --- SCROLL --- */
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 30px; /* Padding por defecto para páginas normales */
+
+  /* --- INTERACCIÓN --- */
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 100;
+
+  /* Scrollbar */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #39ff14;
+    border-radius: 3px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    margin: 20px 0;
+  }
+}
+
+/* Aplicar estilo base a todas las páginas NO mapa */
+.q-page:not(.map-page) {
+  @extend .page-container-style;
+}
+
+/* CORRECCIÓN PARA EL DASHBOARD (Map Pages) */
+.q-page.map-page {
+  @extend .page-container-style;
+
+  /* QUITA el relleno para que el mapa toque los bordes */
+  padding: 0 !important;
+
+  /* Activa Flexbox para que los hijos (mapa/corral) se estiren y ocupen todo el alto */
+  display: flex !important;
+  flex-direction: column !important;
+
+  /* Asegura que la altura sea la del contenedor flotante */
+  height: calc(100vh - 190px);
+}
+
+/* --- 4. Título de Página --- */
+.page-title-box {
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  padding: 8px 24px;
+  display: inline-block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+
+/* --- 5. Footer --- */
+.custom-footer {
+  background: transparent !important;
+  border-top: none !important;
+  height: 70px;
+
+  .custom-tabs {
+    background: #000000;
+    border-radius: 20px 20px 0 0;
+    max-width: 650px;
+    margin: 0 auto;
+    height: 70px;
+  }
+}
+.q-tabs__content .q-tab[name='fab'] {
+  padding: 0;
+  min-width: 60px;
+}
+
+/* --- 6. Iconos Footer --- */
+.q-tab__icon {
+  img {
+    filter: grayscale(1) brightness(2);
+    opacity: 0.7;
+    transition: all 0.3s;
+    width: 28px;
+    height: 28px;
+  }
+}
+.q-tab--active .q-tab__icon img {
+  opacity: 1;
+  filter: drop-shadow(0 0 4px $primary) drop-shadow(0 0 8px $primary);
+}
+
+/* --- 7. Arreglo de Contraste --- */
+.q-card {
+  background: rgba(0, 0, 0, 0.4) !important;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.q-field--filled .q-field__control {
+  background: rgba(0, 0, 0, 0.6) !important;
+  color: #ffffff !important;
+}
+.q-field__label,
+.q-field__hint,
+.q-field__native,
+.q-field__prefix,
+.q-field__suffix {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+.q-select__dropdown-icon {
+  color: $primary !important;
+}
+
+.q-btn.q-btn--standard {
+  background: rgba(0, 0, 0, 0.7) !important;
+  color: $primary !important;
+  border: 1px solid $primary;
+  transition: all 0.3s;
+
+  &:hover {
+    background: $primary !important;
+    color: $dark !important;
+    box-shadow: 0 0 10px $primary;
+  }
+}
+.q-fab__actions .q-btn {
+  background: rgba(0, 0, 0, 0.9) !important;
+  color: $primary !important;
+  border: 1px solid $primary;
+}
+
+.q-dialog__inner {
+  .q-card {
+    background: #1a1a1a !important;
+    border: 1px solid $primary;
+  }
+  .q-field--filled .q-field__control {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+  }
+  .q-field__label,
+  .q-field__hint,
+  .q-field__native {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+  .q-btn--flat {
+    color: #ffffff !important;
+  }
+}
+
+.q-menu {
+  background: rgba(20, 20, 20, 0.9) !important;
+  border: 1px solid $primary;
+
+  /* CORRECCIÓN 2: Soporte Safari */
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+
+  color: #ffffff !important;
+  border-radius: 8px;
+}
+
+.q-item {
+  color: #ffffff !important;
+  &.q-item--active,
+  &.q-item--highlighted,
+  &:hover {
+    background: rgba($primary, 0.2) !important;
+    color: $primary !important;
+  }
+}
+
+/* Tarjetas Dashboard */
+.potrero-card {
+  &.bg-green-7 {
+    background-color: #c8e6c9 !important;
+    border: 2px solid #4caf50;
+    color: #1b5e20 !important;
+    .text-h6,
+    .text-subtitle2 {
+      color: #1b5e20 !important;
+    }
+  }
+  &.bg-grey-7 {
+    background-color: #e0e0e0 !important;
+    border: 2px dashed #757575;
+    color: #424242 !important;
+    .text-h6,
+    .text-caption {
+      color: #424242 !important;
+    }
+  }
+}
+
+/* Estilos para LotesPage */
+.lotes-list-card {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+
+  .q-item__label--header {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  .q-item {
+    padding: 16px !important;
+    color: #ffffff;
+  }
+  .q-item__label {
+    font-size: 1.1em;
+  }
+  .q-item__label--caption {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+  .q-badge {
+    font-weight: bold;
+    padding: 4px 8px;
+  }
+  .q-btn[role='button'] {
+    color: $primary !important;
+    &[color='red-5'] {
+      color: $negative !important;
+    }
+  }
+}
+
+/* --- 8. Estilos para Mapa Leaflet --- */
+.leaflet-tile {
+  filter: brightness(0.8) contrast(1.1);
+}
+.leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+  filter: invert(1) hue-rotate(180deg) brightness(0.95) contrast(0.9);
+}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #1d1d1d !important;
+  color: #ffffff !important;
+  border: 1px solid $primary;
+  box-shadow: 0 0 10px $primary;
+}
+.leaflet-control-layers {
+  background: rgba(29, 29, 29, 0.85) !important;
+  border: 1px solid $primary;
+  color: #ffffff;
+
+  /* CORRECCIÓN 3: Soporte Safari */
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+/* --- 9. Estilos para Listas --- */
+.q-card {
+  .q-list {
+    background: rgba(0, 0, 0, 0.3) !important;
+  }
+  .q-item__label--header {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  .q-item {
+    padding: 16px !important;
+    color: #ffffff;
+  }
+  .q-item__label {
+    font-size: 1.1em;
+    color: #ffffff !important;
+  }
+  .q-item__label--caption {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+}
+
+/* --- 10. Notificaciones --- */
+.q-notifications__list .q-notification {
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.8) !important;
+
+  /* CORRECCIÓN 4: Soporte Safari */
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+
+  padding: 12px 16px;
+  border-width: 2px !important;
+  border-style: solid !important;
+
+  &--positive {
+    border-color: #39ff14 !important;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.5) !important;
+    .q-notification__message,
+    .q-notification__caption,
+    .q-notification__icon,
+    .material-icons {
+      color: #39ff14 !important;
+    }
+    &:before {
+      content: 'check_circle';
+      font-family: 'Material Icons';
+      color: #39ff14 !important;
+      margin-right: 8px;
+      font-size: 1.2rem;
+    }
+    .q-btn {
+      color: #ffffff !important;
+    }
+  }
+
+  &--negative {
+    border-color: #ff3131 !important;
+    box-shadow: 0 0 10px rgba(255, 49, 49, 0.5) !important;
+    .q-notification__message,
+    .q-notification__caption,
+    .q-notification__icon,
+    .material-icons {
+      color: #ff3131 !important;
+    }
+    &:before {
+      content: 'error';
+      font-family: 'Material Icons';
+      color: #ff3131 !important;
+      margin-right: 8px;
+      font-size: 1.2rem;
+    }
+    .q-btn {
+      color: #ffffff !important;
+    }
+  }
+
+  &--warning {
+    border-color: #ffff00 !important;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5) !important;
+    .q-notification__message,
+    .q-notification__caption,
+    .q-notification__icon,
+    .material-icons {
+      color: #ffff00 !important;
+    }
+    &:before {
+      content: 'warning';
+      font-family: 'Material Icons';
+      color: #ffff00 !important;
+      margin-right: 8px;
+      font-size: 1.2rem;
+    }
+    .q-btn {
+      color: #ffffff !important;
+    }
+  }
+
+  &--info {
+    border-color: #00ffff !important;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5) !important;
+    .q-notification__message,
+    .q-notification__caption,
+    .q-notification__icon,
+    .material-icons {
+      color: #00ffff !important;
+    }
+    &:before {
+      content: 'info';
+      font-family: 'Material Icons';
+      color: #00ffff !important;
+      margin-right: 8px;
+      font-size: 1.2rem;
+    }
+    .q-btn {
+      color: #ffffff !important;
+    }
+  }
+
+  .q-notification__icon {
+    font-size: 1.5rem !important;
+    margin-right: 12px !important;
+  }
+  .q-notification__message {
+    font-weight: 500 !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+/* --- 11. Estilos Menús --- */
+.q-menu.glass-dialog-form {
+  background: rgba(40, 40, 40, 0.9) !important;
+
+  /* CORRECCIÓN 5: Soporte Safari */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 8px;
+  .q-item {
+    color: #ffffff !important;
+    &.q-item--active,
+    &.q-item--highlighted,
+    &:hover {
+      background: rgba($primary, 0.2) !important;
+      color: $primary !important;
+    }
+  }
+}
+
+/* --- 12. Utilidades Texto --- */
+.text-gradient {
+  background: linear-gradient(90deg, #39ff14 0%, #00ffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- 13. Transiciones de Página (Globales) --- */
+/* Esto habilita el efecto de desvanecimiento suave entre rutas */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* --- MODO CAMPO: ESTILOS GLOBALES --- */
+
+/* Fondo Azul Profundo (Deep Navy) - Más elegante que el negro */
+.bg-field-dark {
+  background-color: #050b14 !important;
+}
+
+/* Notificaciones Gigantes (Alto Contraste) */
+.field-notify {
+  min-width: 320px !important;
+  padding: 25px !important;
+  border: 4px solid white !important;
+  border-radius: 20px !important;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Notificación de Éxito (Verde) */
+.field-notify-success {
+  background-color: #39ff14 !important;
+  color: black !important;
+
+  .q-notification__message {
+    font-size: 1.8rem !important;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.1;
+  }
+  .q-notification__caption {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+    text-align: center;
+    margin-top: 5px;
+  }
+  .q-icon {
+    font-size: 3.5rem !important;
+    color: black !important;
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* Notificación de Error (Rojo) */
+.field-notify-error {
+  background-color: #ff0000 !important;
+  color: white !important;
+
+  .q-notification__message {
+    font-size: 1.8rem !important;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.1;
+  }
+  .q-notification__caption {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: white !important;
+    text-align: center;
+    margin-top: 5px;
+  }
+  .q-icon {
+    font-size: 3.5rem !important;
+    color: white !important;
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+}

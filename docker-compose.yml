@@ -1,0 +1,9 @@
+services:
+  nutrogan-app:
+    container_name: nutrogan-produccion
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8080:80' # La app será accesible en http://localhost:8080
+    restart: always

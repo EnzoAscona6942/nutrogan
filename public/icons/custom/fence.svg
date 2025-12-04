@@ -1,0 +1,119 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes wave1 {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes wave2 {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes postSway {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(1deg); }
+    }
+    @keyframes cowMove {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+    @keyframes headMove {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(3deg); }
+    }
+    @keyframes tailWag {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(15deg); }
+    }
+    .grass-pixel-1 {
+      animation: wave1 2s ease-in-out infinite;
+      fill: #39FF14; /* Verde neón */
+    }
+    .grass-pixel-2 {
+      animation: wave2 2.5s ease-in-out infinite;
+      fill: #32CD32; /* Verde más oscuro */
+    }
+    .fence-post {
+      animation: postSway 3s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+    .cow-body {
+      animation: cowMove 3s ease-in-out infinite;
+    }
+    .cow-head {
+      animation: headMove 2.5s ease-in-out infinite;
+      transform-origin: 120px 100px;
+    }
+    .cow-tail {
+      animation: tailWag 1.5s ease-in-out infinite;
+      transform-origin: 220px 90px;
+    }
+  </style>
+  
+  <!-- Piso blanco -->
+  <rect fill="white" x="20" y="160" width="260" height="40" />
+  
+  <!-- Píxeles de pasto sobre el piso blanco -->
+  <rect class="grass-pixel-1" x="30" y="150" width="20" height="10" />
+  <rect class="grass-pixel-2" x="60" y="150" width="20" height="10" />
+  <rect class="grass-pixel-1" x="90" y="150" width="20" height="10" />
+  <rect class="grass-pixel-2" x="120" y="150" width="20" height="10" />
+  <rect class="grass-pixel-1" x="150" y="150" width="20" height="10" />
+  <rect class="grass-pixel-2" x="180" y="150" width="20" height="10" />
+  <rect class="grass-pixel-1" x="210" y="150" width="20" height="10" />
+  <rect class="grass-pixel-2" x="240" y="150" width="20" height="10" />
+  
+  <!-- Píxeles de pasto más cortos -->
+  <rect class="grass-pixel-2" x="45" y="145" width="10" height="5" />
+  <rect class="grass-pixel-1" x="75" y="145" width="10" height="5" />
+  <rect class="grass-pixel-2" x="105" y="145" width="10" height="5" />
+  <rect class="grass-pixel-1" x="135" y="145" width="10" height="5" />
+  <rect class="grass-pixel-2" x="165" y="145" width="10" height="5" />
+  <rect class="grass-pixel-1" x="195" y="145" width="10" height="5" />
+  <rect class="grass-pixel-2" x="225" y="145" width="10" height="5" />
+  
+  <!-- Vaca -->
+  <g class="cow-body">
+    <!-- Cuerpo principal -->
+    <rect fill="white" x="160" y="100" width="60" height="30" />
+    
+    <!-- Patas -->
+    <rect fill="white" x="170" y="130" width="10" height="20" />
+    <rect fill="white" x="200" y="130" width="10" height="20" />
+  </g>
+  
+  <!-- Cabeza vaca -->
+  <g class="cow-head">
+    <rect fill="white" x="140" y="100" width="30" height="30" />
+    <rect fill="white" x="120" y="110" width="20" height="15" />
+    
+    <!-- Ojo -->
+    <rect fill="black" x="145" y="110" width="8" height="8" />
+  </g>
+  
+  <!-- Cola vaca -->
+  <g class="cow-tail">
+    <rect fill="white" x="220" y="100" width="8" height="15" />
+    <rect fill="white" x="228" y="95" width="7" height="7" />
+  </g>
+  
+  <!-- Postes verticales verde neón con animación -->
+  <g class="fence-post" style="transform-origin: 30px 160px;">
+    <rect fill="#39FF14" x="25" y="60" width="10" height="100" />
+  </g>
+  <g class="fence-post" style="transform-origin: 90px 160px; animation-delay: 0.2s">
+    <rect fill="#39FF14" x="85" y="60" width="10" height="100" />
+  </g>
+  <g class="fence-post" style="transform-origin: 150px 160px; animation-delay: 0.4s">
+    <rect fill="#39FF14" x="145" y="60" width="10" height="100" />
+  </g>
+  <g class="fence-post" style="transform-origin: 210px 160px; animation-delay: 0.6s">
+    <rect fill="#39FF14" x="205" y="60" width="10" height="100" />
+  </g>
+  <g class="fence-post" style="transform-origin: 270px 160px; animation-delay: 0.8s">
+    <rect fill="#39FF14" x="265" y="60" width="10" height="100" />
+  </g>
+  
+  <!-- Travesaños horizontales verde neón -->
+  <rect fill="#39FF14" x="20" y="80" width="260" height="8" />
+  <rect fill="#39FF14" x="20" y="120" width="260" height="8" />
+</svg>

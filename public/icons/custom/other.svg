@@ -1,0 +1,59 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes bodyMove {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-1px); }
+    }
+    @keyframes headMove {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-5deg); }
+    }
+    @keyframes tailWag {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(10deg); }
+    }
+    .toro-body {
+      animation: bodyMove 5s ease-in-out infinite;
+    }
+    .toro-head {
+      animation: headMove 3.5s ease-in-out infinite;
+      transform-origin: 50px 100px;
+    }
+    .toro-tail {
+      animation: tailWag 2.5s ease-in-out infinite;
+      transform-origin: 180px 90px;
+    }
+  </style>
+  
+  <!-- Toro reproductor (más grande y robusto, blanco) -->
+  <g class="toro-body">
+    <!-- Cuerpo principal (más grande) -->
+    <rect fill="white" x="50" y="80" width="130" height="55" />
+    
+    <!-- Patas (más gruesas) -->
+    <rect fill="white" x="65" y="135" width="30" height="35" />
+    <rect fill="white" x="135" y="135" width="30" height="35" />
+    
+    <!-- Joroba/Lomo más pronunciado -->
+    <rect fill="white" x="70" y="65" width="50" height="15" />
+  </g>
+  
+  <!-- Cabeza toro -->
+  <g class="toro-head">
+    <rect fill="white" x="25" y="80" width="45" height="45" />
+    <rect fill="white" x="5" y="90" width="20" height="25" />
+    
+    <!-- Cuernos más grandes -->
+    <rect fill="white" x="25" y="55" width="15" height="25" />
+    <rect fill="white" x="65" y="55" width="15" height="25" />
+    
+    <!-- Ojos -->
+    <rect fill="black" x="35" y="95" width="12" height="12" />
+  </g>
+  
+  <!-- Cola toro -->
+  <g class="toro-tail">
+    <rect fill="white" x="180" y="80" width="10" height="25" />
+    <rect fill="white" x="190" y="70" width="10" height="10" />
+  </g>
+</svg>

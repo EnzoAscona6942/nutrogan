@@ -1,0 +1,121 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes wave1 {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes wave2 {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes wave3 {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+    @keyframes cowMove {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+    @keyframes headMove {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(3deg); }
+    }
+    @keyframes tailWag {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(15deg); }
+    }
+    .grass-pixel-1 {
+      animation: wave1 2s ease-in-out infinite;
+      fill: #39FF14; /* Verde neón */
+    }
+    .grass-pixel-2 {
+      animation: wave2 2.5s ease-in-out infinite;
+      fill: #32CD32; /* Verde más oscuro */
+    }
+    .grass-pixel-3 {
+      animation: wave3 1.8s ease-in-out infinite;
+      fill: #39FF14; /* Verde neón */
+    }
+    .cow-body {
+      animation: cowMove 3s ease-in-out infinite;
+    }
+    .cow-head {
+      animation: headMove 2.5s ease-in-out infinite;
+      transform-origin: 60px 100px;
+    }
+    .cow-tail {
+      animation: tailWag 1.5s ease-in-out infinite;
+      transform-origin: 160px 90px;
+    }
+    .available-symbol {
+      animation: wave1 3s ease-in-out infinite;
+    }
+  </style>
+  
+  <!-- Píxeles de pasto - primera fila -->
+  <rect class="grass-pixel-1" x="0" y="180" width="20" height="20" />
+  <rect class="grass-pixel-2" x="20" y="180" width="20" height="20" />
+  <rect class="grass-pixel-1" x="40" y="180" width="20" height="20" />
+  <rect class="grass-pixel-2" x="60" y="180" width="20" height="20" />
+  <rect class="grass-pixel-1" x="80" y="180" width="20" height="20" />
+  <rect class="grass-pixel-2" x="100" y="180" width="20" height="20" />
+  <rect class="grass-pixel-1" x="120" y="180" width="20" height="20" />
+  <rect class="grass-pixel-2" x="140" y="180" width="20" height="20" />
+  <rect class="grass-pixel-1" x="160" y="180" width="20" height="20" />
+  <rect class="grass-pixel-2" x="180" y="180" width="20" height="20" />
+  <rect class="grass-pixel-1" x="200" y="180" width="20" height="20" />
+  <rect class="grass-pixel-2" x="220" y="180" width="20" height="20" />
+  <rect class="grass-pixel-1" x="240" y="180" width="20" height="20" />
+  <rect class="grass-pixel-2" x="260" y="180" width="20" height="20" />
+  <rect class="grass-pixel-1" x="280" y="180" width="20" height="20" />
+  
+  <!-- Píxeles de pasto - segunda fila -->
+  <rect class="grass-pixel-3" x="0" y="160" width="20" height="20" />
+  <rect class="grass-pixel-3" x="40" y="160" width="20" height="20" />
+  <rect class="grass-pixel-3" x="80" y="160" width="20" height="20" />
+  <rect class="grass-pixel-3" x="120" y="160" width="20" height="20" />
+  <rect class="grass-pixel-3" x="160" y="160" width="20" height="20" />
+  <rect class="grass-pixel-3" x="200" y="160" width="20" height="20" />
+  <rect class="grass-pixel-3" x="240" y="160" width="20" height="20" />
+  <rect class="grass-pixel-3" x="280" y="160" width="20" height="20" />
+  
+  <!-- Píxeles de pasto - tercera fila -->
+  <rect class="grass-pixel-2" x="20" y="140" width="20" height="20" />
+  <rect class="grass-pixel-2" x="60" y="140" width="20" height="20" />
+  <rect class="grass-pixel-2" x="100" y="140" width="20" height="20" />
+  <rect class="grass-pixel-2" x="140" y="140" width="20" height="20" />
+  <rect class="grass-pixel-2" x="180" y="140" width="20" height="20" />
+  <rect class="grass-pixel-2" x="220" y="140" width="20" height="20" />
+  <rect class="grass-pixel-2" x="260" y="140" width="20" height="20" />
+  
+  <!-- Vaca -->
+  <g class="cow-body">
+    <!-- Cuerpo principal -->
+    <rect fill="white" x="160" y="100" width="100" height="40" />
+    
+    <!-- Patas -->
+    <rect fill="white" x="170" y="140" width="20" height="20" />
+    <rect fill="white" x="230" y="140" width="20" height="20" />
+  </g>
+  
+  <!-- Cabeza vaca -->
+  <g class="cow-head">
+    <rect fill="white" x="140" y="100" width="40" height="40" />
+    <rect fill="white" x="120" y="110" width="20" height="20" />
+    
+    <!-- Ojo -->
+    <rect fill="black" x="150" y="110" width="10" height="10" />
+  </g>
+  
+  <!-- Cola vaca -->
+  <g class="cow-tail">
+    <rect fill="white" x="260" y="100" width="10" height="20" />
+    <rect fill="white" x="270" y="90" width="10" height="10" />
+  </g>
+  
+  <!-- Símbolo de disponible (signo +) -->
+  <g class="available-symbol">
+    <rect fill="white" x="30" y="70" width="40" height="10" />
+    <rect fill="white" x="45" y="55" width="10" height="40" />
+  </g>
+</svg>
