@@ -201,7 +201,7 @@ async function handleRegister() {
   min-height: 100vh;
   background-color: #050505;
   /* Fondo base texturizado */
-  background-image: url('src/assets/nutroogan-bg.jpg');
+  background-image: url('src/assets/nutrogan-bg.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
